@@ -1,11 +1,28 @@
 
 import './DataScientistDashboardPage.scss';
 import { useEffect, useState } from 'react';
-
+import CodeEditor from '@uiw/react-textarea-code-editor';
 
 const providerOptions = {};
 
 function DataScientistDashboardPage() {
+
+  const [code, setCode] = useState(
+    `import banana
+
+  class Monkey:
+    # Bananas the monkey can eat.
+    capacity = 10
+    def eat(self, n):
+        """Make the monkey eat n bananas!"""
+        self.capacity -= n * banana.size
+
+    def feeding_frenzy(self):
+        self.eat(9.25)
+        return "Yum yum"
+    `
+  );
+
   useEffect(() => {
 
   });
@@ -25,7 +42,18 @@ function DataScientistDashboardPage() {
               <button className='DataScientistDashboardPage__addNewTabBtn'>+</button>
             </div>
             <div className='DataScientistDashboardPage__codeEditor'>
-
+              <CodeEditor
+                value={code}
+                language="py"
+                placeholder="Please enter JS code."
+                onChange={(evn) => setCode(evn.target.value)}
+                padding={15}
+                style={{
+                  fontSize: 12,
+                  backgroundColor: "#1a1a1c;",
+                  fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+                }}
+              />
             </div>
 
           </div>

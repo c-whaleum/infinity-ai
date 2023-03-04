@@ -31,6 +31,9 @@
     width: 100%;
     border: 1px solid grey;
     border-radius: 5px;
+    .w-tc-editor{
+      height: 100%;
+    }
   }
   &__rightSide{
     margin: 0 15px;
