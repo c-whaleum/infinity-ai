@@ -25,7 +25,64 @@ function DataScientistDashboardPage() {
 
   useEffect(() => {
 
+
   });
+
+  const uploadModel = async () => {
+    const response = await fetch('/api/upload', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        code,
+      }),
+    });
+    const data = await response.json();
+    console.log("uploadModel", data);
+  }
+
+  const saveModel = async () => {
+    const response = await fetch('/api/save', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        code,
+      }),
+    });
+    const data = await response.json();
+    console.log("saveModel", data);
+  }
+
+  const testModel = async () => {
+    const response = await fetch('/api/submitJob', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        code,
+      }),
+    });
+    const data = await response.json();
+    console.log("submitJob", data);
+  };
+
+  const submitJob = async () => {
+    const response = await fetch('/api/submitJob', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        code,
+      }),
+    });
+    const data = await response.json();
+    console.log("submitJob", data);
+  };
 
   return (
     <div className="DataScientistDashboardPage">
@@ -45,7 +102,7 @@ function DataScientistDashboardPage() {
               <CodeEditor
                 value={code}
                 language="py"
-                placeholder="Please enter JS code."
+                placeholder="Please enter Python code."
                 onChange={(evn) => setCode(evn.target.value)}
                 padding={15}
                 style={{
@@ -54,6 +111,37 @@ function DataScientistDashboardPage() {
                   fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
                 }}
               />
+            </div>
+            <div className='DataScientistDashboardPage__BtnsWrapper'>
+              <div className='DataScientistDashboardPage__leftBtns'>
+                <button 
+                  className='DataScientistDashboardPage__uploadBtn DataScientistDashboardPage__actionBtn'
+                  onClick={() => uploadModel()}
+                >
+                  Upload
+                </button>
+                <button 
+                  className='DataScientistDashboardPage__saveBtn DataScientistDashboardPage__actionBtn'
+                  onClick={() => saveModel()}
+                  >
+                  Save
+                </button>
+              </div>
+              <div className='DataScientistDashboardPage__rightBtns'>
+                <button 
+                  className='DataScientistDashboardPage__uploadBtn DataScientistDashboardPage__actionBtn'
+                  onClick={() => testModel()}
+                >
+                  Test
+                </button>
+                <button 
+                  className='DataScientistDashboardPage__submitJobBtn DataScientistDashboardPage__actionBtn'
+                  onClick={() => submitJob()}
+                  >
+                  Submit Job
+                </button>
+              </div>
+
             </div>
 
           </div>
