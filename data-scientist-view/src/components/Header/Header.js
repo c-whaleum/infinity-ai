@@ -10,7 +10,8 @@ const providerOptions = {};
 
 function Header() {
   const [isWalletConnected, setWalletConnected] = useState(false);
-  const [web3ModalProvider, setWeb3ModalProvider] = useState(false);
+  const [web3ModalProvider, setWeb3ModalProvider] = useState({});
+  const [walletAddress, setWalletAddress] = useState("");
 
   useEffect(() => {
 
@@ -29,12 +30,14 @@ function Header() {
       );
 
       setWalletConnected(true)
-      setWeb3ModalProvider(web3ModalProvider)
+      setWeb3ModalProvider(web3ModalProvider);
+      setWalletAddress(await web3ModalProvider.getSigner().getAddress());
     } catch (error) {
       console.error("connectWallet error", connectWallet);
     }
   }
 
+  console.log("walletAddress", web3ModalProvider);
   return (
     <div className="Header">
       <div className='Header__inner'>
@@ -61,7 +64,8 @@ function Header() {
               <button className={`Header__loginRegisterText`} onClick={() => connectWallet()}>Connect Wallet</button>
             ) : (
               <div>
-                {shortenWalletAddress(web3ModalProvider?._network?.ensAddress)}
+                {"Connected: "}
+                {shortenWalletAddress(web3ModalProvider?._network?.ensAddress) && shortenWalletAddress(web3ModalProvider?._network?.ensAddress)}
               </div>
             )}
 
