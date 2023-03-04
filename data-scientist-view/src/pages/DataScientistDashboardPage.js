@@ -25,6 +25,18 @@ function DataScientistDashboardPage() {
 
   useEffect(() => {
 
+    // async function main() {
+    //   let pyodide = await loadPyodide({
+    //     indexURL: "https://cdn.jsdelivr.net/pyodide/v0.18.1/full/"
+    // });
+    //   // Pyodide is now ready to use...
+    //   console.log(pyodide.runPython(`
+    //     import sys
+    //     sys.version
+    //   `));
+    // };
+    // main();
+
 
   });
 
