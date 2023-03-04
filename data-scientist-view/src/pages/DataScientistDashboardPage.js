@@ -1,13 +1,12 @@
-import logo from "./logo.svg";
+
 import { Route, Routes } from "react-router-dom";
 import React, { Component } from "react";
 import Web3Modal from "web3modal";
 import { ethers } from "ethers";
-import Navbar from "./components/Navbar/Navbar";
-import Landing from "./components/Landing/Landing";
-import Header from "./components/Header/Header";
 
-import DataScientistDashboardPage from "./pages/DataScientistDashboardPage";
+// import Navbar from "./components/Navbar/Navbar";
+// import Landing from "./components/Landing/Landing";
+import Header from "../components/Header/Header";
 
 const providerOptions = {};
 
@@ -43,21 +42,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        {!this.state.walletConnected ? (
-          <div>
-            <h1>Please connect wallet to begin</h1>
-            <button onClick={this.connectWallet}>Connect Wallet</button>
-          </div>
-        ) : (
-          <div>
-            <Navbar />
-            <Routes>
-              
-              <Route path="/" element={<DataScientistDashboardPage />} />
-            </Routes>
-          </div>
-        )}
+
       </div>
     );
   }
