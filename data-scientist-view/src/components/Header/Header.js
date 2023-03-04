@@ -37,6 +37,7 @@ function Header() {
     }
   }
 
+  console.log("walletAddress", walletAddress);
   console.log("walletAddress", web3ModalProvider);
   return (
     <div className="Header">
@@ -65,7 +66,7 @@ function Header() {
             ) : (
               <div>
                 {"Connected: "}
-                {shortenWalletAddress(web3ModalProvider?._network?.ensAddress) && shortenWalletAddress(web3ModalProvider?._network?.ensAddress)}
+                {shortenWalletAddress(walletAddress) && shortenWalletAddress(walletAddress)}
               </div>
             )}
 
