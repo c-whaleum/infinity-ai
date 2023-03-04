@@ -44,20 +44,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {!this.state.walletConnected ? (
-          <div>
-            <h1>Please connect wallet to begin</h1>
-            <button onClick={this.connectWallet}>Connect Wallet</button>
-          </div>
-        ) : (
-          <div>
-            <Navbar />
-            <Routes>
-              
-              <Route path="/" element={<DataScientistDashboardPage />} />
-            </Routes>
-          </div>
-        )}
+        <Routes>
+          <Route path="/" element={<DataScientistDashboardPage />} />
+        </Routes>
+
       </div>
     );
   }

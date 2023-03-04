@@ -1,51 +1,101 @@
 
-import { Route, Routes } from "react-router-dom";
-import React, { Component } from "react";
-import Web3Modal from "web3modal";
-import { ethers } from "ethers";
+import './DataScientistDashboardPage.scss';
+import { useEffect, useState } from 'react';
 
-// import Navbar from "./components/Navbar/Navbar";
-// import Landing from "./components/Landing/Landing";
-import Header from "../components/Header/Header";
 
 const providerOptions = {};
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      walletConnected: false,
-    };
-    this.connectWallet = this.connectWallet.bind(this);
-  }
+function DataScientistDashboardPage() {
+  useEffect(() => {
 
-  async connectWallet() {
-    try {
-      let web3Modal = new Web3Modal({
-        cacheProvider: false,
-        providerOptions,
-      });
+  });
 
-      const web3ModalInstance = await web3Modal.connect();
-      const web3ModalProvider = new ethers.providers.Web3Provider(
-        web3ModalInstance
-      );
+  return (
+    <div className="DataScientistDashboardPage">
+      <div className="DataScientistDashboardPage__inner">
+        <div className='DataScientistDashboardPage__leftSide'>
+          <div className='DataScientistDashboardPage__ideContainer'>
+            <div className='DataScientistDashboardPage__tabs'>
+              <div className='DataScientistDashboardPage__tab'>
+                heimdall.py
+              </div>
+              <div className='DataScientistDashboardPage__tab'>
+                nb.ipynb
+              </div>
+              <button className='DataScientistDashboardPage__addNewTabBtn'>+</button>
+            </div>
+            <div className='DataScientistDashboardPage__codeEditor'>
 
-      console.log(web3ModalProvider);
+            </div>
 
-      this.setState({ walletConnected: true });
-    } catch (error) {
-      console.error(error);
-    }
-  }
+          </div>
+        </div>
+        <div className='DataScientistDashboardPage__rightSide'>
 
-  render() {
-    return (
-      <div className="App">
+          <div className='DataScientistDashboardPage__tabs'>
+            <div className='DataScientistDashboardPage__tab'>
+              Patients
+            </div>
+            <div className='DataScientistDashboardPage__tab'>
+              Hospitals
+            </div>
+            <div className='DataScientistDashboardPage__tab'>
+              Deaths
+            </div>
+            <button className='DataScientistDashboardPage__addNewTabBtn'>+</button>
+          </div>
+          <div className='DataScientistDashboardPage__tables'>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">City</th>
+                  <th scope="col">State</th>
+                  <th scope="col">B12 Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>34</td>
+                  <td>Jersey City</td>
+                  <td>NJ</td>
+                  <td>89</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Johnson</td>
+                  <td>28</td>
+                  <td>Boise</td>
+                  <td>ID</td>
+                  <td>120</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry</td>
+                  <td>Bird</td>
+                  <td>39</td>
+                  <td>Boston</td>
+                  <td>MA</td>
+                  <td>300</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
+        </div>
       </div>
-    );
-  }
+
+
+
+    </div>
+  );
 }
 
-export default App;
+export default DataScientistDashboardPage;
